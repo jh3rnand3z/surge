@@ -1,11 +1,12 @@
 {application, surge, [
-	{description, ""},
+	{description, "A sudden powerful forward or upward movement"},
 	{vsn, "0.1.0"},
 	{modules, []},
 	{registered, []},
 	{applications, [
 		kernel,
-		stdlib
+		stdlib,
+		cowboy
 	]},
 	{mod, {surge_app, []}},
 	{env, []}

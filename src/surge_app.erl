@@ -5,7 +5,13 @@
 -export([stop/1]).
 
 start(_Type, _Args) ->
-	surge_sup:start_link().
+    Dispatch = cowboy_router:compile([
+        {'_', [{"/", hello_handler, []}]}
+    ]),
+    cowboy:start_http(my_http_listener, 100, [{port, 8083}],
+        [{env, [{dispatch, Dispatch}]}]
+    ),
+    surge_sup:start_link().
 
 stop(_State) ->
-	ok.
+    ok.
