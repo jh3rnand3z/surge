@@ -1,3 +1,3 @@
 PROJECT = surge
-DEPS = cowboy
+DEPS = cowboy czmq lager gun epgsql
 include erlang.mk
